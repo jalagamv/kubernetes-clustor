@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: deployment
+metadata:
+        name: ngnix-deployment
+spec:
+        replicas: 3
+        template:
+          metadata: 
+            labels:
+               app: ngnix-deployment
+               tier: front-end
+        spec:
+          containers: 
+            - name: ngnix
+              image: ngnix
+              imagepullPolicy: Always
+              ports:
+               - containersPort: 80         
